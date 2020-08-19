@@ -1,8 +1,8 @@
 <div class="main-box">
   <div class="docs-box">
-    <div class="docs-collection">
+    <div class="docs-collection" *ngIf="false">
       <div class="add-docs">
-        <button>Upload Document</button>
+        <button (click)="uploadDocument(uploadDocumentModal)">Upload Document</button>
       </div>
       <div class="file-details"  *ngFor="let item of items; let i = index">
         Working {{i + 1}}
@@ -10,13 +10,19 @@
         <button (click)="openFile(i)" style="width: 80%;">Open</button>
       </div>
     </div>
+    <div class="file-url">
+      <label for="url"> <b>Enter file URL:</b> </label>
+      <input type="text" [(ngModel)]="fileURL" placeholder="file URL..." required>
+      <button (click)="submit()">Submit</button>
+    </div>
   </div>
   <div class="docs-view">
     <iframe
-      src="https://docs.google.com/spreadsheets/d/1vBprAmEDKNUvBxV_Rj5WULpZ5hk6fKNgDqljOE-QL8U/edit#gid=0"
+      [src]="uploadedFile"
       frameborder="1"
       width="1120vw"
       height="580"
     ></iframe>
   </div>
 </div>
+
