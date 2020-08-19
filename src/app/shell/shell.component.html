@@ -1,0 +1,33 @@
+<div class="page-section">
+  <div class="side-panel">
+    <span class="index">
+      <p>Dashboard Options</p>
+    </span>
+    <div class="button-routes">
+      <div class="excel">
+        <button (click)="navigateTo('excel')">
+          Excel
+        </button>
+      </div>
+      <div class="docs">
+        <button (click)="navigateTo('docs')">
+          Docx
+        </button>
+      </div>
+      <div class="pdfs">
+        <button (click)="navigateTo('pdfs')">
+          PDFs
+        </button>
+      </div>
+      <div class="charts">
+        <button (click)="navigateTo('charts')">
+          Charts
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="route-wrapper">
+    <router-outlet></router-outlet>
+  </div>
+</div>

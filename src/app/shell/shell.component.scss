@@ -1,0 +1,53 @@
+.page-section {
+  display: flex;
+}
+
+.side-panel {
+  padding: 1% 0;
+  height: 96vh;
+  width: 15%;
+  box-shadow: 4px 4px 10px 1px #707070;
+  background: #0898BF;
+  margin-right: 2%;
+}
+
+.index {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #FFF;
+
+  p {
+    font-weight: 600;
+    font-size: 18px;
+    color: #FFF;
+    letter-spacing: 1px;
+  }
+}
+
+.button-routes {
+  display: grid;
+  padding: 10px;
+  position: relative;
+  justify-content: center;
+
+  div {
+    margin: 10px 0;
+
+    button {
+      border: none;
+      outline: none;
+      font-size: 15px;
+      padding: 8px;
+      width: 100px;
+      border-radius: 10px;
+
+      &:hover, &:focus{
+        color: #0898BF;
+        box-shadow: 0px 0px 6px 4px #797979;
+      }
+    }
+  }
+}
+.route-wrapper {
+  max-width: 81%;
+}
