@@ -1,0 +1,52 @@
+.main-box {
+  margin-top: 2%;
+  max-width: 115%;
+}
+
+.docs-box {
+  height: 130px;
+  border: 1px solid #797979;
+  border-radius: 10px;
+  padding: 10px;
+  width: 79vw;
+  margin-bottom: 1%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+iframe {
+  width: 80vw;
+  height: 70vh;
+  border-radius: 10px;
+  border: 1px solid #797979;
+}
+
+.docs-collection {
+  display: inline-flex;
+
+  .add-docs {
+    padding: 45px 5px;
+    width: 100px;
+    margin-right: 1%;
+    border-right: 2px solid #797979;
+  }
+
+  .file-details {
+    box-shadow: 0px 0px 5px 0px #797979;
+    padding: 5px;
+    width: 100px;
+    height: 120px;
+    margin-right: 1%;
+    text-align: center;
+  }
+}
+
+button {
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  padding: 5px;
+  background: #0898BF;
+  color: #FFFFFF;
+  font-weight: 600;
+}
