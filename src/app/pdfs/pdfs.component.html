@@ -1,0 +1,15 @@
+<div class="main-box">
+  <div class="docs-box">
+    <div class="docs-collection">
+      <div class="add-docs">
+        <button>Upload Document</button>
+      </div>
+      <div class="file-details"  *ngFor="let item of items; let i = index">
+        Working {{i + 1}}
+        <p>File name</p>
+        <button (click)="openFile(i)" style="width: 80%;">Open</button>
+      </div>
+    </div>
+  </div>
+  <iframe src="assets/images/cover-letter.pdf" frameborder="0"></iframe>
+</div>
