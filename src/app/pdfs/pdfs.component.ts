@@ -31,10 +31,8 @@ export class PdfsComponent implements OnInit {
   }
 
   public handleFileInput(files: FileList) {
-    console.log(files.item(0))
     this.fileData = files.item(0);
     const fileReader = new FileReader();
-    console.log(fileReader.readAsDataURL(files.item(0)));
   }
 
   public upload() {

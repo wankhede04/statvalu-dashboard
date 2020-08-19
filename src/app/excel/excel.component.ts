@@ -22,7 +22,7 @@ export class ExcelComponent implements OnInit {
   }
 
   public openFile(i: number) {
-    console.log(i)
+    // Proxy function for file opening
   }
 
   public uploadDocument(content: any) {
@@ -30,7 +30,7 @@ export class ExcelComponent implements OnInit {
   }
 
   public handleFileInput(files: FileList) {
-    console.log(files.item(0))
+    // Todo: handle file input and using file reader read as URL
   }
 
   public submit() {
