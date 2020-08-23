@@ -1,28 +1,53 @@
 <div class="main-box">
   <div class="docs-box">
-    <div class="docs-collection" *ngIf="false">
+    <div class="docs-collection" *ngIf="true">
       <div class="add-docs">
         <button (click)="uploadDocument(uploadDocumentModal)">Upload Document</button>
       </div>
-      <div class="file-details"  *ngFor="let item of items; let i = index">
-        Working {{i + 1}}
-        <p>File name</p>
-        <button (click)="openFile(i)" style="width: 80%;">Open</button>
+      <div *ngIf="(excels$ | async)" style="font-size: 20px; align-self: center;">
+        Please upload some documents for list view.
+      </div>
+      <div class="file-details"  *ngFor="let item of excels$ | async">
+        <p>{{item.name.substr(0, 12)}}</p>
+        <button (click)="openFile(item.data)" style="width: 80%;">Open</button>
       </div>
     </div>
-    <div class="file-url">
+    <div class="file-url" *ngIf="false">
       <label for="url"> <b>Enter file URL:</b> </label>
       <input type="text" [(ngModel)]="fileURL" placeholder="file URL..." required>
-      <button (click)="submit()">Submit</button>
+      <button (keyup)="submit($event)" [(ngModel)]="inputText">Submit</button>
     </div>
   </div>
-  <div class="docs-view">
+  <div class="docs-view table-responsive" style="display:block;overflow:auto;max-height:450px;">
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col" *ngFor="let header of dataUnderArray | keyvalue" contenteditable="true">{{header.key}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td *ngFor="let col of row | keyvalue" contenteditable="true" (mouseover)="saveCalendar($event)">{{col.value}}</td>
+        </tr>
+      </tbody>
+    </table>
+<!-- 
     <iframe
-      [src]="uploadedFile"
+      *ngIf="fileURL"
+      src="blob:http://localhost:4200/7028ee11-0578-4f85-a3c3-746810a967ae"
       frameborder="1"
       width="1120vw"
       height="580"
-    ></iframe>
+    ></iframe> -->
   </div>
 </div>
 
+<ng-template #uploadDocumentModal id="uploadDocumentModal">
+  <div class="container">
+    <div class="row col-12">
+      <label for="file">Choose File</label>
+      <input id="file" type="file" (change)="handleFileInput($event.target.files)" accept=".xlsx">
+    </div>
+  </div>
+</ng-template>

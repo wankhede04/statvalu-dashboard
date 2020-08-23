@@ -60,3 +60,19 @@ button {
     width: 6%;
   }
 }
+
+.container {
+  padding: 10px;
+
+  input {
+    width: 100%;
+    outline: none;
+  }
+
+  button {
+    margin: 5px 0;
+    float: right;
+    font-size: 14px;
+    padding: 8px;
+  }
+}
