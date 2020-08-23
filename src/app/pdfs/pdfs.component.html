@@ -1,6 +1,6 @@
 <div class="main-box">
   <div class="docs-box">
-    <div class="docs-collection" *ngIf="false">
+    <div class="docs-collection" *ngIf="true">
       <div class="add-docs">
         <button (click)="uploadDocument(uploadDocumentModal)">Upload Document</button>
       </div>
@@ -10,23 +10,20 @@
         <button (click)="openFile(i)" style="width: 80%;">Open</button>
       </div>
     </div>
-    <div class="file-url">
+    <div class="file-url" *ngIf="false">
       <label for="url"> <b>Enter file URL:</b> </label>
       <input type="text" [(ngModel)]="fileURL" placeholder="file URL..." required>
       <button (click)="submit()">Submit</button>
     </div>
   </div>
-  <iframe [src]="uploadedFile" frameborder="0"></iframe>
+  <iframe [src]="fileURL" frameborder="0"></iframe>
 </div>
 
 <ng-template #uploadDocumentModal id="uploadDocumentModal">
   <div class="container">
     <div class="row col-12">
       <label for="file">Choose File</label>
-      <input id="file" type="file" (change)="handleFileInput($event.target.files)">
-    </div>
-    <div class="col-12">
-      <button (click)="upload()">Submit</button>
+      <input id="file" type="file" (change)="handleFileInput($event.target.files)" accept=".pdf">
     </div>
   </div>
 </ng-template>

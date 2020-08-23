@@ -11,16 +11,15 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 export class PdfsComponent implements OnInit {
   public items: Array<number> = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   public fileData: File = null;
-  public fileURL: string;
+  public fileURL: SafeResourceUrl;
   public uploadedFile: SafeResourceUrl;
 
   constructor(
     private modalService: NgbModal,
-    private fileUploaderService: FileUploaderService,
     private sanitizer: DomSanitizer
   ) {
     const url = 'assets/images/local-file.pdf';
-    this.uploadedFile = this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(url);
   }
 
   ngOnInit() {
@@ -31,17 +30,8 @@ export class PdfsComponent implements OnInit {
   }
 
   public handleFileInput(files: FileList) {
-    this.fileData = files.item(0);
-    const fileReader = new FileReader();
-  }
-
-  public upload() {
-    this.fileUploaderService.uploadFileData(this.fileData).subscribe(res => {
-      this.modalService.dismissAll();
-    });
-  }
-
-  public submit() {
-    this.uploadedFile = this.sanitizer.bypassSecurityTrustResourceUrl(this.fileURL);
+    const fileURL = URL.createObjectURL(files.item(0));
+    this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(fileURL);
+    this.modalService.dismissAll();
   }
 }
