@@ -306,6 +306,41 @@
     tree-kill "1.2.2"
     webpack-sources "1.3.0"
 
+"@ngxs/devtools-plugin@3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@ngxs/devtools-plugin/-/devtools-plugin-3.6.2.tgz#aa0a4835f90fb905951d7712dc3ce508cbc15a2c"
+  integrity sha512-0UUZlpXgEtrHoWNeVQXEvUyC6pW8nTACpqJgecuBjYJMa5imCCUSXdrpear8ztJuWwpLqMUSGk5cICNhKqK59g==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/logger-plugin@3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@ngxs/logger-plugin/-/logger-plugin-3.6.2.tgz#1a8132a0b1eb95cad79736120fd50a331fe7347b"
+  integrity sha512-qF4ci9Ua7jL7r5EhZBEb0JB0HuGsTgFShK3OVTYSXU9+XfSb+5vrDLtmTshmBqQy6dWCd+2xq4LzBgc8IKMRuQ==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/router-plugin@3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@ngxs/router-plugin/-/router-plugin-3.6.2.tgz#058b09565011203bbf52294f16f29f9337aeaa27"
+  integrity sha512-5J3G9+Qsy/s7iqFivzAN1S6EmaZYTb9hqz7Xjn3c0u3Y44VMP5VWiz77jZ/eowXX0slJywcMxk6oCEFPwz4lXQ==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/storage-plugin@3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@ngxs/storage-plugin/-/storage-plugin-3.6.2.tgz#6fe2168891382c635406df02308f67b585efc60a"
+  integrity sha512-x9CATYmXDH9bWmKW4uQxt5xxb51naSAmMkhvv1QHIrE9hG4uYNqiV3ERAM1wZvZbu2MJB9iXEN0cBziTgrwe2Q==
+  dependencies:
+    tslib "^1.9.0"
+
+"@ngxs/store@^3.6.2":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.6.2.tgz#cfba63dc1e5bd422e89e54b3332cd69818510624"
+  integrity sha512-al7GU618SAuz2Ul4rFYVDgS1DM0gHReGOGvbnE7LBt4Etz3gsJERNYXPp2bSA7lZGaRPRaFfIHJN+Lm/GikFJw==
+  dependencies:
+    tslib "^1.9.0"
+
 "@schematics/angular@7.3.10":
   version "7.3.10"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.3.10.tgz#0f94e9d206c6a240f832f1cd5d0e6b65deb0dc28"
@@ -386,6 +421,11 @@
     "@types/node" "*"
     "@types/source-list-map" "*"
     source-map "^0.6.1"
+
+"@types/xlsx@0.0.34":
+  version "0.0.34"
+  resolved "https://registry.yarnpkg.com/@types/xlsx/-/xlsx-0.0.34.tgz#2b49e60dcbd3553a6bf211a3af1a6f4c7cb2c8b9"
+  integrity sha1-K0nmDcvTVTpr8hGjrxpvTHyyyLk=
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -6830,6 +6870,13 @@ ts-node@~7.0.0:
     mkdirp "^0.5.1"
     source-map-support "^0.5.6"
     yn "^2.0.0"
+
+ts-xlsx@^0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/ts-xlsx/-/ts-xlsx-0.0.11.tgz#5a5fbcdd0f59d558c287af4c74fd5ea9a4bbeb39"
+  integrity sha1-Wl+83Q9Z1VjCh69MdP1eqaS76zk=
+  dependencies:
+    "@types/xlsx" "0.0.34"
 
 tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
   version "1.13.0"
