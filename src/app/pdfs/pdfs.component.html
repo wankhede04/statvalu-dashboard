@@ -4,10 +4,12 @@
       <div class="add-docs">
         <button (click)="uploadDocument(uploadDocumentModal)">Upload Document</button>
       </div>
-      <div class="file-details"  *ngFor="let item of items; let i = index">
-        Working {{i + 1}}
-        <p>File name</p>
-        <button (click)="openFile(i)" style="width: 80%;">Open</button>
+      <div *ngIf="(PDFs$ | async)" style="font-size: 20px; align-self: center;">
+        Please upload some documents for list view.
+      </div>
+      <div class="file-details" *ngFor="let item of PDFs$ | async">
+        <p>{{item.name.substr(0, 12)}}</p>
+        <button (click)="openFile(item.fileURL)" style="width: 80%;">Open</button>
       </div>
     </div>
     <div class="file-url" *ngIf="false">

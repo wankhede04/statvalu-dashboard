@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { FileUploaderService } from '../services/file-uploader.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { Store, Select } from '@ngxs/store';
+import { Notes } from '../store/files/notes.actions';
+import { Observable } from 'rxjs';
+import { NoteDetailsState } from '../store/files/notes.state';
 
 @Component({
   selector: 'app-pdfs',
@@ -14,9 +17,13 @@ export class PdfsComponent implements OnInit {
   public fileURL: SafeResourceUrl;
   public uploadedFile: SafeResourceUrl;
 
+  @Select(NoteDetailsState.getPDFs)
+  public PDFs$: Observable<any>;
+
   constructor(
     private modalService: NgbModal,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private store: Store
   ) {
     const url = 'assets/images/local-file.pdf';
     this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(url);
@@ -32,6 +39,11 @@ export class PdfsComponent implements OnInit {
   public handleFileInput(files: FileList) {
     const fileURL = URL.createObjectURL(files.item(0));
     this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(fileURL);
+    this.store.dispatch(new Notes.PDF({fileURL, name: files.item(0).name}));
     this.modalService.dismissAll();
+  }
+
+  public openFile(fileURL: any) {
+    this.fileURL = this.sanitizer.bypassSecurityTrustResourceUrl(fileURL);
   }
 }
